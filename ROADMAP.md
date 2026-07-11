@@ -3,6 +3,10 @@
 The full catalog — **142 modules** across five tracks. This is a **map, not a to-do list**:
 the unit of progress is always *one module*, and the only module that matters is the current one.
 
+**For the actual order to work in, use [PATH.md](PATH.md)** — Year 1 weekend by weekend,
+spine builds and CS-foundations reading already interleaved. This file is the full territory;
+PATH.md is the route through it.
+
 ## How the tracks interleave
 
 - **[Spine](curriculum/spine/README.md)** (73 modules) — the primary track. Weekend builds, driven by SlipCheck. Work it in order.

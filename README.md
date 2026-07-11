@@ -20,6 +20,7 @@ practiced against a real product with real users.
 ## How this repo works
 
 ```
+PATH.md               ← START HERE: Year 1 weekend-by-weekend, builds + CS reading merged
 ROADMAP.md            ← the map: 142 modules, 5 tracks, tiered must/should/nice
 DEPENDENCY_GRAPH.md   ← what unlocks what
 SYSTEMS_CATALOG.md    ← the ~50 reusable systems every mature SaaS is built from
@@ -86,4 +87,10 @@ currently building SlipCheck — a compliance SaaS for snow-removal contractors.
 Strong at shipping products; this curriculum is about understanding the layer beneath
 everything I ship.
 
-**Start here → [Module 1: API Design Fundamentals](curriculum/spine/01-production-backend/01-api-design-fundamentals.md)**
+## Start here
+
+1. Open **[PATH.md](PATH.md)** — the Year 1 sequence, one row per weekend, with the
+   Saturday-morning CS reading and the Saturday-afternoon build already interleaved.
+2. Row 1 is **[Module 1: API Design Fundamentals](curriculum/spine/01-production-backend/01-api-design-fundamentals.md)**
+   + *Code* ch. 1–4.
+3. Never look further ahead than the current row.
