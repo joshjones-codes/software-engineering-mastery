@@ -2,7 +2,7 @@
 
 A multi-year, first-principles curriculum for going from senior full-stack engineer to
 systems engineer — built in public, one weekend at a time, with
-[SlipCheck](https://slipcheck.ca) as the production laboratory.
+[SlipCheck](https://slipcheck.pro) as the production laboratory.
 
 **This is not a list of technologies to learn.** It's a map of the *problems* that
 technologies exist to solve. Docker is one implementation of *containers*. Kafka is one
