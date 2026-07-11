@@ -1,0 +1,10 @@
+# Error, Loading & Offline UX
+
+> **Track:** Frontend · **Stage:** Application Architecture · **Tier:** 🟡 should · **Effort:** ~1 wknd · **Status:** ⬜ not started
+
+**Covers:** error boundaries, skeletons vs spinners, retry UX, empty states
+
+---
+
+Stub. This module gets fully authored from the [module template](../../../templates/module.md) when I reach it —
+see [ROADMAP.md](../../../ROADMAP.md) for the path here and [Module 1](../../spine/01-production-backend/01-api-design-fundamentals.md) for the quality bar.
