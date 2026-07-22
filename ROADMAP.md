@@ -108,7 +108,7 @@ Staff-level thinking: what happens when there is more than one machine and any o
 | [Distributed Locks](curriculum/spine/05-distributed-systems/08-distributed-locks.md) | 🟡 should | ~1 wknd | lease-based locks, fencing tokens, Redlock controversy |
 | [Resilience Patterns](curriculum/spine/05-distributed-systems/09-resilience-patterns.md) | 🔴 must | ~2 wknds | timeouts, circuit breakers, bulkheads, backpressure, load shedding |
 | [Delivery Guarantees](curriculum/spine/05-distributed-systems/10-delivery-guarantees.md) | 🟡 should | ~1 wknd | at-most/at-least/exactly-once, consumer offset management |
-| [Offline-First & Sync](curriculum/spine/05-distributed-systems/11-offline-first-and-sync.md) | 🟡 should | ~2–3 wknds | sync queues, conflict resolution, CRDT intuition — field crews and mobile users with no signal |
+| [Offline-First & Sync](curriculum/spine/05-distributed-systems/11-offline-first-and-sync.md) | 🟡 should | ~2–3 wknds | sync queues, conflict resolution, CRDT intuition — mobile clients that must keep working with no signal |
 | [Service Discovery & Load Balancing](curriculum/spine/05-distributed-systems/12-service-discovery-and-load-balancing.md) | ⚪ nice | ~1 wknd | L4 vs L7, health-based routing, discovery mechanisms |
 
 ### Storage, Search & Analytics

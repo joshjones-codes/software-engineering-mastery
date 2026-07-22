@@ -42,7 +42,7 @@ Rules of the path:
 | 24 | [2.6 Connection Pooling](curriculum/spine/02-databases/06-connection-pooling.md) | F3.4 (2 of 2) — worker pool build; pays off at wknd 34 |
 | 25 | [2.7 Replication & Read Replicas](curriculum/spine/02-databases/07-replication-and-read-replicas.md) (1 of 2) | [F3.5 Filesystems](curriculum/foundations/03-operating-systems/05-filesystems.md) — why databases fsync |
 | 26 | 2.7 Replication (2 of 2) | [F3.6 Node.js Runtime Internals](curriculum/foundations/03-operating-systems/06-nodejs-runtime-internals.md) (1 of 2) |
-| 27 | [2.8 Audit Tables & Soft Deletes](curriculum/spine/02-databases/08-audit-tables-and-soft-deletes.md) — the immutable compliance trail | F3.6 (2 of 2) — **book 3 done** 📘 |
+| 27 | [2.8 Audit Tables & Soft Deletes](curriculum/spine/02-databases/08-audit-tables-and-soft-deletes.md) — the immutable audit trail | F3.6 (2 of 2) — **book 3 done** 📘 |
 | 28 | ⚪ [2.9 NoSQL & Alternative Models](curriculum/spine/02-databases/09-nosql-and-alternative-models.md) — **Stage 2 done** 🏁 | *Networking* · [F4.1 TCP & UDP](curriculum/foundations/04-networking/01-transport-tcp-udp.md) (1 of 2) |
 | 29 | [3.1 Caching Strategies](curriculum/spine/03-caching/01-caching-strategies.md) (1 of 2) | F4.1 (2 of 2) |
 | 30 | 3.1 Caching Strategies (2 of 2) | [F4.2 DNS](curriculum/foundations/04-networking/02-dns.md) |

@@ -25,7 +25,7 @@ act on.** The design work is almost entirely in choosing the nouns.
 
 ```
         the fixed verbs                 your nouns
-  GET / POST / PATCH / DELETE   ×   /companies /sites /check-ins /photos
+  GET / POST / PATCH / DELETE   ×   /merchants /couriers /deliveries /photos
                     │
                     ▼
      predictable grid of behavior:
@@ -38,9 +38,9 @@ The test of a good API: a consumer who has seen two of your endpoints can correc
 
 ## Vocabulary
 
-- **Resource** — a noun worth addressing: `check-in`, not `doCheckIn`. Resources are
-  things; behavior comes from methods applied to things.
-- **Collection vs item** — `/check-ins` vs `/check-ins/:id`. Plural collections, always.
+- **Resource** — a noun worth addressing: `delivery`, not `completeDelivery`. Resources
+  are things; behavior comes from methods applied to things.
+- **Collection vs item** — `/deliveries` vs `/deliveries/:id`. Plural collections, always.
 - **Idempotent** — calling it twice = calling it once (GET, PUT, DELETE; *not* POST).
   This word returns in Spine 4.4 with much higher stakes.
 - **Safe** — no state change at all (GET, HEAD). Safe implies idempotent, not vice versa.
@@ -56,16 +56,16 @@ How past-me built APIs — endpoints named after UI actions, added in the order 
 shipped:
 
 ```
-POST /api/doCheckIn
-GET  /api/getEmployeeCheckIns?empId=7
-POST /api/markSiteComplete
+POST /api/assignDelivery
+GET  /api/getCourierDeliveries?courierId=7
+POST /api/markDelivered
 GET  /api/dashboardData
-POST /api/uploadPhotoForSite
+POST /api/uploadProofPhoto
 ```
 
 Where it fails, precisely:
 
-1. **Nothing is guessable.** Is it `getEmployeeCheckIns` or `checkInsForEmployee`?
+1. **Nothing is guessable.** Is it `getCourierDeliveries` or `deliveriesForCourier`?
    Every consumer memorizes every endpoint. The API surface grows O(features), and so
    does the documentation burden.
 2. **`/dashboardData` couples the API to one screen.** When the dashboard changes, the
@@ -89,30 +89,31 @@ Resource-oriented design over plain HTTP semantics. The playbook, distilled from
 [Google AIP](https://google.aip.dev/) API guidelines — three shops that publish theirs
 precisely because consistency is the product:
 
-**1. Model the nouns first.** Worked example — a field-service compliance SaaS
+**1. Model the nouns first.** Worked example — a last-mile delivery platform
 (the example domain used throughout the curriculum):
 
 ```
-companies ─┬─ sites ──── site-photos
-           ├─ employees
-           └─ check-ins   (employee × site × time)
+merchants ─┬─ locations
+           ├─ couriers
+           └─ deliveries ──── proof-photos
+              (courier × location × time)
 ```
 
 **2. Uniform grid of operations:**
 
 ```
-GET    /v1/check-ins            list (paginated, filterable)
-POST   /v1/check-ins            create
-GET    /v1/check-ins/:id        fetch one
-PATCH  /v1/check-ins/:id        partial update
-DELETE /v1/check-ins/:id        delete (or state transition — see below)
+GET    /v1/deliveries           list (paginated, filterable)
+POST   /v1/deliveries           create
+GET    /v1/deliveries/:id       fetch one
+PATCH  /v1/deliveries/:id       partial update
+DELETE /v1/deliveries/:id       delete (or state transition — see below)
 ```
 
 **3. Sub-resources only where the child can't exist alone:**
-`/sites/:id/photos` — a photo of nothing is meaningless. But check-ins get a top-level
-collection even though they belong to sites, because the product queries them across
-sites ("all of today's check-ins"). **Access patterns, not just ownership, decide the
-URL shape.**
+`/deliveries/:id/photos` — a proof-of-delivery photo of nothing is meaningless. But
+deliveries get a top-level collection even though they belong to merchants, because the
+product queries them across merchants ("all of today's deliveries"). **Access patterns,
+not just ownership, decide the URL shape.**
 
 **4. Status codes as contract, small fixed palette:** `200/201/204` success;
 `400` malformed, `401` who are you, `403` not allowed, `404` doesn't exist *(also:
@@ -125,8 +126,8 @@ exists but you may not know that — return 404 not 403 for cross-tenant probes)
 {
   "error": {
     "type": "validation_error",
-    "message": "check_in_time must be in the past",
-    "field": "check_in_time",
+    "message": "delivered_at must be in the past",
+    "field": "delivered_at",
     "request_id": "req_8fk2j1"
   }
 }
@@ -137,8 +138,8 @@ against logs (pays off in Spine 1.8 and 7.6). RFC 9457 (*Problem Details*) is th
 standardized version of this idea.
 
 **6. State transitions as actions, not fake resources.** When something genuinely isn't
-CRUD — completing a site visit, say — Stripe's convention:
-`POST /v1/site-visits/:id/complete`. A verb, deliberately, marking "this is a
+CRUD — completing a delivery, say — Stripe's convention:
+`POST /v1/deliveries/:id/complete`. A verb, deliberately, marking "this is a
 transition with rules," rather than pretending `PATCH {status: "complete"}` has no
 side effects.
 
@@ -165,8 +166,8 @@ side effects.
 **Weekend project:** design-first, then implement, no framework magic.
 
 1. Write `openapi.yaml` for the lab product's four core resources (the worked example
-   uses `companies`, `sites`, `check-ins`, `site-photos`) — *before* any code. Every
-   endpoint, every status code, the error envelope, list/detail representations.
+   uses `merchants`, `couriers`, `deliveries`, `proof-photos`) — *before* any code.
+   Every endpoint, every status code, the error envelope, list/detail representations.
 2. Implement two of them on **raw Node `http`** — no Express. Hand-roll: router,
    JSON body parsing with size limit, error envelope middleware, 405 for wrong
    methods (a detail frameworks hide).
@@ -202,24 +203,25 @@ Why it matters by scale:
 
 - At **1 customer**: none of this matters. That's why brownfield APIs look the way they do.
 - At **100 customers**: the first external integration request arrives ("can we pull
-  compliance events into our system?") and the contract becomes a product surface.
+  your events into our system?") and the contract becomes a product surface.
 - At **10,000**: you're Stripe — you publish your API guidelines because hundreds of
   integrations depend on your consistency, and versioning (Spine 1.9) is a
   full-time concern.
 
 ## System design exercise
 
-*Design the public API for a snow-removal compliance platform: contractors, sites,
-crews, check-ins with GPS+photo proof, and insurance companies pulling compliance
-reports. Insurers are read-only third parties; contractors are read-write first
-parties.*
+*Design the public API for a last-mile delivery platform: merchants, couriers,
+deliveries with GPS + photo proof-of-delivery, and enterprise merchants pulling
+delivery reports. End customers tracking a package are read-only third parties;
+merchants are read-write first parties.*
 
-Work through: resource model, whose-view-is-it problems (a "site" to a contractor vs
-to an insurer), auth boundary (foreshadows 1.3/1.4), and what you'd version from day
-one. Back-of-envelope: 500 contractors × 30 sites × 4 check-ins/storm-day ≈ 60k
-writes/day — trivially small (~0.7 rps average, maybe 20 rps storm-peak), which is
-itself the design insight: **this API's constraint is contract quality, not
-throughput.** Numbers before architecture.
+Work through: resource model, whose-view-is-it problems (a "delivery" to a merchant vs
+to the end customer — does the customer see the courier's name? the merchant's cost?),
+auth boundary (foreshadows 1.3/1.4), and what you'd version from day one.
+Back-of-envelope: 2,000 couriers × 30 deliveries/day ≈ 60k writes/day — trivially
+small (~0.7 rps average, maybe 20 rps lunch-rush peak), which is itself the design
+insight: **this API's constraint is contract quality, not throughput.** Numbers before
+architecture.
 
 ## Interview questions
 
@@ -247,7 +249,7 @@ throughput.** Numbers before architecture.
 - Returning `200` with `{"success": false}` — breaks every HTTP-aware layer between
   the client and you (caches, proxies, monitoring, retry logic).
 - `403` where `404` belongs across tenant boundaries (information leak).
-- Nesting by ownership instead of access pattern (`/companies/:id/sites/:id/check-ins/:id`
+- Nesting by ownership instead of access pattern (`/merchants/:id/locations/:id/deliveries/:id`
   — three IDs to fetch one thing that has a unique ID).
 - Treating the error format as "we'll standardize it later." Later means after
   consumers have parsed all five accidental formats.

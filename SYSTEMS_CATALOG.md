@@ -99,21 +99,21 @@ recombination of familiar parts.
 ## The reference build order
 
 The spine's project sequencing — each capability lands when the lab product genuinely
-needs it. The order below is the natural sequence for a field-service B2B SaaS (the
-worked example used throughout the curriculum); most SaaS products follow it closely:
+needs it. The order below uses the curriculum's worked example (a last-mile delivery
+platform), but most B2B SaaS products follow it closely:
 
-1. **Authentication & RBAC** — company roles, admin vs crew
-2. **GPS tracking** — check-in verification (core product)
-3. **File upload service** — site photos, presigned + compression
-4. **Audit logging** — immutable compliance trail (the product IS the audit trail)
-5. **Notification platform** — assignment alerts, weather triggers
+1. **Authentication & RBAC** — org roles, admin vs field user
+2. **GPS tracking** — proof-of-presence verification (core product)
+3. **File upload service** — proof photos, presigned + compression
+4. **Audit logging** — immutable event trail (in many products, the trail IS the product)
+5. **Notification platform** — assignment alerts, status triggers
 6. **Background job system** — everything async goes through it
-7. **Search** — employees, sites, events
-8. **Analytics / event pipeline** — manager dashboards off the event stream, not prod DB
+7. **Search** — users, entities, events
+8. **Analytics / event pipeline** — dashboards off the event stream, not prod DB
 9. **Billing & subscriptions** — revenue
 10. **Reporting / PDF generation** — the deliverable customers pay for
-11. **Real-time map updates** — dispatch board goes live
-12. **Webhook platform** — customers' systems subscribe to compliance events
+11. **Real-time map updates** — live ops board
+12. **Webhook platform** — customers' systems subscribe to your events
 13. **Multi-tenancy hardening** — RLS, isolation guarantees
 14. **Observability** — traces across the whole event flow
 15. **Feature flags** — safe rollout as customer count grows
@@ -121,17 +121,18 @@ worked example used throughout the curriculum); most SaaS products follow it clo
 The north-star architecture this converges on:
 
 ```
-Employee checks in
+Core domain action happens
+  (courier marks delivered)
       ↓
   publish event
       ↓
 ┌────────────────────────────────────────────┐
-│ queue → GPS verification → weather lookup  │
+│ queue → GPS verification → ETA recalc      │
 │       → audit log (immutable)              │
 │       → notifications (retry + DLQ)        │
 │       → analytics stream                   │
-│       → payroll export                     │
-│       → manager dashboard (realtime)       │
+│       → payout export                      │
+│       → ops dashboard (realtime)           │
 └────────────────────────────────────────────┘
 ```
 
