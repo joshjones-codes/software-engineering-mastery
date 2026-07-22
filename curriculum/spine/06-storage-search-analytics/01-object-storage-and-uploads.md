@@ -2,7 +2,7 @@
 
 > **Track:** Spine · **Stage:** Storage, Search & Analytics · **Tier:** 🔴 must · **Effort:** ~2 wknds · **Status:** ⬜ not started
 
-**Covers:** presigned URLs, multipart, checksums, lifecycle policies — SlipCheck photos already live here
+**Covers:** presigned URLs, multipart, checksums, lifecycle policies — every product with user uploads lands here
 
 ---
 

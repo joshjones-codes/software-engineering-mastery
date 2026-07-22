@@ -2,7 +2,7 @@
 
 > **Track:** Frontend · **Stage:** Rendering & Performance · **Tier:** 🔴 must · **Effort:** ~2–3 wknds · **Status:** ⬜ not started
 
-**Covers:** Core Web Vitals, bundle analysis, code splitting, virtualization, image strategy, web workers · project: SlipCheck mobile feels instant
+**Covers:** Core Web Vitals, bundle analysis, code splitting, virtualization, image strategy, web workers · project: make the lab app feel instant on mobile
 
 ---
 

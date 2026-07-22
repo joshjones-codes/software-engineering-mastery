@@ -1,6 +1,6 @@
 # Offline & Device APIs
 
-The browser capabilities that map 1:1 to SlipCheck field-crew features.
+The browser capabilities that make offline-capable, device-aware field apps possible.
 
 | Module | Tier | Effort | Covers |
 |---|---|---|---|

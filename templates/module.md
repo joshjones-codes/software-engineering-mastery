@@ -35,9 +35,9 @@ What did we gain? What got more complicated? When is this pattern the WRONG choi
 The smallest from-scratch implementation that demonstrates the core idea.
 Link to the code. Include what surprised me.
 
-## SlipCheck integration
+## Lab integration
 
-Where this lives (or deliberately doesn't) in SlipCheck. Link the PR/commit.
+Where this lives (or deliberately doesn't) in the lab product. Link the PR/commit.
 How would this change at 100 customers? 10,000? 100,000?
 
 ## System design exercise
@@ -61,7 +61,7 @@ Primary source(s), best article/paper/talk. Quality over quantity.
 - [ ] Can explain the problem without naming a technology
 - [ ] Can draw the mental model from memory
 - [ ] Built the minimal version — [link]
-- [ ] Integrated into SlipCheck or wrote an ADR for why not — [link]
+- [ ] Integrated into the lab product or wrote an ADR for why not — [link]
 - [ ] Wrote the handbook chapter — [link]
 - [ ] Can answer every interview question above cold
 

@@ -2,7 +2,7 @@
 
 > **Track:** Spine · **Stage:** AI Systems · **Tier:** 🟡 should · **Effort:** ~1 wknd · **Status:** ⬜ not started
 
-**Covers:** build an MCP server for SlipCheck data
+**Covers:** build an MCP server over the lab product's data
 
 ---
 

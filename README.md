@@ -1,8 +1,8 @@
 # Software Engineering Mastery
 
 A multi-year, first-principles curriculum for going from senior full-stack engineer to
-systems engineer — built in public, one weekend at a time, with
-[SlipCheck](https://slipcheck.pro) as the production laboratory.
+systems engineer — built in public, one weekend at a time, with a real production app
+as the laboratory.
 
 **This is not a list of technologies to learn.** It's a map of the *problems* that
 technologies exist to solve. Docker is one implementation of *containers*. Kafka is one
@@ -16,6 +16,15 @@ design, build, and operate systems that keep working under scale, failure, and c
 requirements — and to explain *why* they're built the way they are. That ability is
 built the same way it always has been: one deeply-understood concept at a time,
 practiced against a real product with real users.
+
+## The lab
+
+Every module ends by integrating into **the lab** — whatever real product I'm currently
+building. The curriculum is deliberately not welded to any one product: the lab is a
+role, not a name. What matters is that it's real — real users, real data, real
+consequences — because production pressure is the best teacher. A greenfield product is
+the best lab of all: the modules get to shape it from the first commit instead of being
+retrofitted onto legacy decisions.
 
 ## How this repo works
 
@@ -46,7 +55,7 @@ Read  →  Build  →  Integrate  →  Reflect  →  Teach
 
 - **Read** — Saturday morning: the module's reading + current book chapters ([reading/](reading/README.md))
 - **Build** — Saturday afternoon: the smallest version that works, from scratch
-- **Integrate** — into SlipCheck, when it genuinely solves a product problem
+- **Integrate** — into the lab, when it genuinely solves a product problem
 - **Reflect** — handwritten notebook first, then a [handbook](handbook/README.md) chapter
 - **Teach** — the handbook chapter, lightly edited, becomes a public post
 
@@ -55,7 +64,7 @@ A module is done when I can answer, without notes:
 1. Why does this exist? What problem does it solve?
 2. How would a naive solution fail?
 3. How would I implement it myself?
-4. Where does SlipCheck use it (or why doesn't it)?
+4. Where does the lab use it (or why doesn't it)?
 5. How would I explain the tradeoffs in a Staff-level interview?
 
 ## The tracks
@@ -74,7 +83,7 @@ A module is done when I can answer, without notes:
    a wall to stare at — it's proof I never have to wonder what's next.
 2. **Concepts before tools.** No module is "learn X framework."
 3. **Build before adopting.** Write the toy version before installing the real one.
-4. **Everything ties back to SlipCheck** when it honestly can. Production pressure is
+4. **Everything ties back to the lab** when it honestly can. Production pressure is
    the best teacher.
 5. **Every six months: one project designed with no AI architecture help.** AI as
    reviewer, not architect. That's the internalization test.
@@ -83,7 +92,7 @@ A module is done when I can answer, without notes:
 ## Where I'm starting from
 
 ~5 years professional full-stack (React/Next.js, Node, TypeScript, PostgreSQL, AWS),
-currently building SlipCheck — a compliance SaaS for snow-removal contractors.
+most recently having shipped a B2B compliance SaaS end to end.
 Strong at shipping products; this curriculum is about understanding the layer beneath
 everything I ship.
 

@@ -42,7 +42,7 @@ Rules of the path:
 | 24 | [2.6 Connection Pooling](curriculum/spine/02-databases/06-connection-pooling.md) | F3.4 (2 of 2) — worker pool build; pays off at wknd 34 |
 | 25 | [2.7 Replication & Read Replicas](curriculum/spine/02-databases/07-replication-and-read-replicas.md) (1 of 2) | [F3.5 Filesystems](curriculum/foundations/03-operating-systems/05-filesystems.md) — why databases fsync |
 | 26 | 2.7 Replication (2 of 2) | [F3.6 Node.js Runtime Internals](curriculum/foundations/03-operating-systems/06-nodejs-runtime-internals.md) (1 of 2) |
-| 27 | [2.8 Audit Tables & Soft Deletes](curriculum/spine/02-databases/08-audit-tables-and-soft-deletes.md) — SlipCheck's compliance trail | F3.6 (2 of 2) — **book 3 done** 📘 |
+| 27 | [2.8 Audit Tables & Soft Deletes](curriculum/spine/02-databases/08-audit-tables-and-soft-deletes.md) — the immutable compliance trail | F3.6 (2 of 2) — **book 3 done** 📘 |
 | 28 | ⚪ [2.9 NoSQL & Alternative Models](curriculum/spine/02-databases/09-nosql-and-alternative-models.md) — **Stage 2 done** 🏁 | *Networking* · [F4.1 TCP & UDP](curriculum/foundations/04-networking/01-transport-tcp-udp.md) (1 of 2) |
 | 29 | [3.1 Caching Strategies](curriculum/spine/03-caching/01-caching-strategies.md) (1 of 2) | F4.1 (2 of 2) |
 | 30 | 3.1 Caching Strategies (2 of 2) | [F4.2 DNS](curriculum/foundations/04-networking/02-dns.md) |
@@ -57,7 +57,7 @@ Rules of the path:
 | 39 | [4.3 Retries, Backoff & DLQs](curriculum/spine/04-async-systems/03-retries-backoff-and-dlqs.md) | F5.3 (2 of 2) |
 | 40 | [4.4 Idempotency](curriculum/spine/04-async-systems/04-idempotency.md) | [F5.4 Partitioning](curriculum/foundations/05-data-intensive-systems/04-partitioning.md) |
 | 41 | [4.5 Scheduling & Cron](curriculum/spine/04-async-systems/05-scheduling-and-cron.md) | [F5.5 Transactions & Consistency](curriculum/foundations/05-data-intensive-systems/05-transactions-and-consistency.md) (1 of 3) — DDIA's hardest, best chapters |
-| 42 | [4.6 Pub/Sub & Event Fanout](curriculum/spine/04-async-systems/06-pub-sub-and-event-fanout.md) — SlipCheck check-in becomes an event | F5.5 (2 of 3) |
+| 42 | [4.6 Pub/Sub & Event Fanout](curriculum/spine/04-async-systems/06-pub-sub-and-event-fanout.md) — the core domain action becomes an event | F5.5 (2 of 3) |
 | 43 | [4.7 Realtime: WebSockets & SSE](curriculum/spine/04-async-systems/07-realtime-websockets-and-sse.md) (1 of 2) | F5.5 (3 of 3) |
 | 44 | 4.7 Realtime (2 of 2) | [F5.6 Batch & Stream Processing](curriculum/foundations/05-data-intensive-systems/06-batch-and-stream-processing.md) (1 of 2) |
 | 45 | [4.8 Notification Systems](curriculum/spine/04-async-systems/08-notification-systems.md) (1 of 2) | F5.6 (2 of 2) — **book 5 done** 📕📗📘📙📔 |
@@ -67,7 +67,7 @@ Rules of the path:
 
 ## What Year 1 gets you
 
-All five foundation books read *and applied*. SlipCheck transformed: consistent API,
+All five foundation books read *and applied*. The lab product built right: consistent API,
 auth/RBAC, multi-tenant, indexed and migrated properly, cached, fully event-driven with
 queues, retries, DLQs, idempotency, notifications, and billing. Every core capability in
 the [Systems Catalog](SYSTEMS_CATALOG.md) through "background job system" — built, not

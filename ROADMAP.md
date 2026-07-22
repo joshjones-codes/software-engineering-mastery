@@ -9,16 +9,16 @@ PATH.md is the route through it.
 
 ## How the tracks interleave
 
-- **[Spine](curriculum/spine/README.md)** (73 modules) — the primary track. Weekend builds, driven by SlipCheck. Work it in order.
+- **[Spine](curriculum/spine/README.md)** (73 modules) — the primary track. Weekend builds, driven by the lab product. Work it in order.
 - **[Foundations](curriculum/foundations/README.md)** (28 modules) — Saturday-morning reading alongside the spine. *Code* → *Grokking* → *OSTEP* → *Networking* → *DDIA*.
-- **[Frontend](curriculum/frontend/README.md)** (21 modules) — interleave when interview-relevant or SlipCheck-relevant; you're already strong here, this adds depth.
+- **[Frontend](curriculum/frontend/README.md)** (21 modules) — interleave when interview-relevant or product-relevant; you're already strong here, this adds depth.
 - **[Practices](curriculum/practices/README.md)** (10 habits) — woven into every module from day one. Never a phase.
 - **[Advanced](curriculum/advanced/README.md)** (10 areas) — years 2+. Don't plan these yet.
 
 ## Tiers
 
 - 🔴 **must** — gates progress; core mental models
-- 🟡 **should** — build when SlipCheck or interviews demand it; don't skip forever
+- 🟡 **should** — build when the lab product or interviews demand it; don't skip forever
 - ⚪ **nice** — genuinely optional; curiosity-driven
 
 Effort estimates assume the weekend loop: Read → Build → Integrate → Reflect → Teach.
@@ -108,7 +108,7 @@ Staff-level thinking: what happens when there is more than one machine and any o
 | [Distributed Locks](curriculum/spine/05-distributed-systems/08-distributed-locks.md) | 🟡 should | ~1 wknd | lease-based locks, fencing tokens, Redlock controversy |
 | [Resilience Patterns](curriculum/spine/05-distributed-systems/09-resilience-patterns.md) | 🔴 must | ~2 wknds | timeouts, circuit breakers, bulkheads, backpressure, load shedding |
 | [Delivery Guarantees](curriculum/spine/05-distributed-systems/10-delivery-guarantees.md) | 🟡 should | ~1 wknd | at-most/at-least/exactly-once, consumer offset management |
-| [Offline-First & Sync](curriculum/spine/05-distributed-systems/11-offline-first-and-sync.md) | 🟡 should | ~2–3 wknds | sync queues, conflict resolution, CRDT intuition — SlipCheck field crews with no signal |
+| [Offline-First & Sync](curriculum/spine/05-distributed-systems/11-offline-first-and-sync.md) | 🟡 should | ~2–3 wknds | sync queues, conflict resolution, CRDT intuition — field crews and mobile users with no signal |
 | [Service Discovery & Load Balancing](curriculum/spine/05-distributed-systems/12-service-discovery-and-load-balancing.md) | ⚪ nice | ~1 wknd | L4 vs L7, health-based routing, discovery mechanisms |
 
 ### Storage, Search & Analytics
@@ -117,9 +117,9 @@ Files, documents, and turning operational data into questions you can answer.
 
 | Module | Tier | Effort | Covers |
 |---|---|---|---|
-| [Object Storage & Uploads](curriculum/spine/06-storage-search-analytics/01-object-storage-and-uploads.md) | 🔴 must | ~2 wknds | presigned URLs, multipart, checksums, lifecycle policies — SlipCheck photos already live here |
+| [Object Storage & Uploads](curriculum/spine/06-storage-search-analytics/01-object-storage-and-uploads.md) | 🔴 must | ~2 wknds | presigned URLs, multipart, checksums, lifecycle policies — every product with user uploads lands here |
 | [File Processing Pipelines](curriculum/spine/06-storage-search-analytics/02-file-processing-pipelines.md) | 🟡 should | ~2 wknds | async image processing, thumbnails, EXIF/GPS extraction, virus scanning |
-| [Document Generation](curriculum/spine/06-storage-search-analytics/03-document-generation.md) | 🟡 should | ~1 wknd | PDF reports, templating, async generation — SlipCheck compliance reports |
+| [Document Generation](curriculum/spine/06-storage-search-analytics/03-document-generation.md) | 🟡 should | ~1 wknd | PDF reports, templating, async generation — invoices, reports, exports |
 | [Data Formats & Serialization](curriculum/spine/06-storage-search-analytics/04-data-formats-and-serialization.md) | 🟡 should | ~1 wknd | JSON vs Protobuf vs Avro, schema evolution, compression |
 | [Search](curriculum/spine/06-storage-search-analytics/05-search.md) | 🟡 should | ~2 wknds | inverted indexes, tokenization, relevance, Postgres FTS before dedicated engines |
 | [Analytics Pipelines](curriculum/spine/06-storage-search-analytics/06-analytics-pipelines.md) | 🟡 should | ~2 wknds | event collection, ETL/ELT, columnar storage, reading off the event stream not prod DB |
@@ -152,7 +152,7 @@ Applied AI engineering on top of everything above — agents and RAG are distrib
 | [Embeddings & Vector Search](curriculum/spine/08-ai-systems/01-embeddings-and-vector-search.md) | 🔴 must | ~2 wknds | embedding models, similarity, pgvector before dedicated DBs, hybrid search |
 | [RAG Systems](curriculum/spine/08-ai-systems/02-rag-systems.md) | 🔴 must | ~2 wknds | chunking, retrieval quality, reranking, citations, when RAG is the wrong tool |
 | [Agents & Tool Use](curriculum/spine/08-ai-systems/03-agents-and-tool-use.md) | 🔴 must | ~2–3 wknds | agent loops, function calling, sandboxing, failure modes, human-in-the-loop |
-| [MCP](curriculum/spine/08-ai-systems/04-mcp.md) | 🟡 should | ~1 wknd | build an MCP server for SlipCheck data |
+| [MCP](curriculum/spine/08-ai-systems/04-mcp.md) | 🟡 should | ~1 wknd | build an MCP server over the lab product's data |
 | [Evals](curriculum/spine/08-ai-systems/05-evals.md) | 🔴 must | ~2 wknds | golden sets, LLM-as-judge, regression testing prompts like code |
 | [Context Engineering & Memory](curriculum/spine/08-ai-systems/06-context-engineering-and-memory.md) | 🟡 should | ~2 wknds | context budgets, summarization, memory architectures |
 | [Prompting & Model Routing](curriculum/spine/08-ai-systems/07-prompt-engineering-and-model-routing.md) | 🟡 should | ~1 wknd | prompt caching, cost/latency tiers, structured output |
@@ -266,19 +266,19 @@ The pipeline, then the practice of making it fast.
 | Module | Tier | Effort | Covers |
 |---|---|---|---|
 | [Browser Rendering Pipeline](curriculum/frontend/04-rendering-and-performance/01-browser-rendering-pipeline.md) | 🔴 must | ~2 wknds | layout → paint → composite, reflows, GPU layers, what triggers what |
-| [Frontend Performance](curriculum/frontend/04-rendering-and-performance/02-frontend-performance.md) | 🔴 must | ~2–3 wknds | Core Web Vitals, bundle analysis, code splitting, virtualization, image strategy, web workers · project: SlipCheck mobile feels instant |
+| [Frontend Performance](curriculum/frontend/04-rendering-and-performance/02-frontend-performance.md) | 🔴 must | ~2–3 wknds | Core Web Vitals, bundle analysis, code splitting, virtualization, image strategy, web workers · project: make the lab app feel instant on mobile |
 
 ### Design Systems
 
-Underrated senior skill — you're already partway there with SlipCheck's token discipline.
+Underrated senior skill — the difference between using a component library and owning a design system.
 
 | Module | Tier | Effort | Covers |
 |---|---|---|---|
-| [Design Systems](curriculum/frontend/05-design-systems/01-design-systems.md) | 🟡 should | ~2–3 wknds | tokens, variants, composition & slots, accessible primitives, documentation · project: formalize SlipCheck UI |
+| [Design Systems](curriculum/frontend/05-design-systems/01-design-systems.md) | 🟡 should | ~2–3 wknds | tokens, variants, composition & slots, accessible primitives, documentation · project: formalize the lab app's UI into a documented system |
 
 ### Offline & Device APIs
 
-The browser capabilities that map 1:1 to SlipCheck field-crew features.
+The browser capabilities that make offline-capable, device-aware field apps possible.
 
 | Module | Tier | Effort | Covers |
 |---|---|---|---|
@@ -323,7 +323,7 @@ Polish tier — pursue when it serves the product.
 | [Observability Habits](curriculum/practices/observability-habits.md) | log/metric/trace something in every build from day one; the deep module is Spine 7.6 |
 | [Domain Modeling](curriculum/practices/domain-modeling.md) | entities, invariants, state machines, ubiquitous language — modeling before coding |
 | [Feature Flags & Experimentation](curriculum/practices/feature-flags-and-experimentation.md) | flag lifecycle, kill switches, gradual rollout, cleanup debt |
-| [Privacy & Compliance](curriculum/practices/privacy-and-compliance.md) | PII handling, data minimization, retention, PIPEDA/GDPR — SlipCheck holds employee GPS + photos; this is a differentiator |
+| [Privacy & Compliance](curriculum/practices/privacy-and-compliance.md) | PII handling, data minimization, retention, PIPEDA/GDPR — table stakes the moment a product holds GPS traces, photos, or employee data |
 | [Cost Awareness](curriculum/practices/cost-awareness.md) | unit economics per feature — what does this endpoint/queue/bucket cost at 10× scale? |
 
 ## Advanced — Years 2+

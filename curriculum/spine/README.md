@@ -1,6 +1,6 @@
 # Spine — The Build Track
 
-The primary track. Eight stages, each driven by a real SlipCheck bottleneck. One module ≈ one weekend loop (Read → Build → Integrate → Reflect → Teach). Work top to bottom, but a stage doesn't need to be 100% complete before starting the next — `must` modules gate progress, `should`/`nice` can be back-filled.
+The primary track. Eight stages, each driven by a real product bottleneck. One module ≈ one weekend loop (Read → Build → Integrate → Reflect → Teach). Work top to bottom, but a stage doesn't need to be 100% complete before starting the next — `must` modules gate progress, `should`/`nice` can be back-filled.
 
 | Stage | Modules | Focus |
 |---|---|---|

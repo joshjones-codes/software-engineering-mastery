@@ -2,7 +2,7 @@
 
 > **Track:** Spine · **Stage:** Distributed Systems · **Tier:** 🟡 should · **Effort:** ~2–3 wknds · **Status:** ⬜ not started
 
-**Covers:** sync queues, conflict resolution, CRDT intuition — SlipCheck field crews with no signal
+**Covers:** sync queues, conflict resolution, CRDT intuition — field crews and mobile users with no signal
 
 ---
 

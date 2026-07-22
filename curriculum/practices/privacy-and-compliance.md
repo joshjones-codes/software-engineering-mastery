@@ -2,7 +2,7 @@
 
 > **Track:** Practices · Practice — applies from Module 1, never 'done'
 
-**Territory:** PII handling, data minimization, retention, PIPEDA/GDPR — SlipCheck holds employee GPS + photos; this is a differentiator
+**Territory:** PII handling, data minimization, retention, PIPEDA/GDPR — table stakes the moment a product holds GPS traces, photos, or employee data
 
 ---
 

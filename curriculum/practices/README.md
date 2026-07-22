@@ -12,5 +12,5 @@ These are NOT phases and never 'done'. Each is a habit applied from Module 1 onw
 | [Observability Habits](observability-habits.md) | log/metric/trace something in every build from day one; the deep module is Spine 7.6 |
 | [Domain Modeling](domain-modeling.md) | entities, invariants, state machines, ubiquitous language — modeling before coding |
 | [Feature Flags & Experimentation](feature-flags-and-experimentation.md) | flag lifecycle, kill switches, gradual rollout, cleanup debt |
-| [Privacy & Compliance](privacy-and-compliance.md) | PII handling, data minimization, retention, PIPEDA/GDPR — SlipCheck holds employee GPS + photos; this is a differentiator |
+| [Privacy & Compliance](privacy-and-compliance.md) | PII handling, data minimization, retention, PIPEDA/GDPR — table stakes the moment a product holds GPS traces, photos, or employee data |
 | [Cost Awareness](cost-awareness.md) | unit economics per feature — what does this endpoint/queue/bucket cost at 10× scale? |

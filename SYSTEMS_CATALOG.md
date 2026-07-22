@@ -96,14 +96,15 @@ recombination of familiar parts.
 
 ---
 
-## The SlipCheck build order
+## The reference build order
 
-The spine's project sequencing — each capability lands when SlipCheck genuinely needs
-it, in roughly this order:
+The spine's project sequencing — each capability lands when the lab product genuinely
+needs it. The order below is the natural sequence for a field-service B2B SaaS (the
+worked example used throughout the curriculum); most SaaS products follow it closely:
 
 1. **Authentication & RBAC** — company roles, admin vs crew
 2. **GPS tracking** — check-in verification (core product)
-3. **File upload service** — site photos, presigned + compression *(partially live on AWS)*
+3. **File upload service** — site photos, presigned + compression
 4. **Audit logging** — immutable compliance trail (the product IS the audit trail)
 5. **Notification platform** — assignment alerts, weather triggers
 6. **Background job system** — everything async goes through it

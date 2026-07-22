@@ -89,7 +89,8 @@ Resource-oriented design over plain HTTP semantics. The playbook, distilled from
 [Google AIP](https://google.aip.dev/) API guidelines — three shops that publish theirs
 precisely because consistency is the product:
 
-**1. Model the nouns first.** For SlipCheck's core domain:
+**1. Model the nouns first.** Worked example — a field-service compliance SaaS
+(the example domain used throughout the curriculum):
 
 ```
 companies ─┬─ sites ──── site-photos
@@ -109,7 +110,7 @@ DELETE /v1/check-ins/:id        delete (or state transition — see below)
 
 **3. Sub-resources only where the child can't exist alone:**
 `/sites/:id/photos` — a photo of nothing is meaningless. But check-ins get a top-level
-collection even though they belong to sites, because SlipCheck queries them across
+collection even though they belong to sites, because the product queries them across
 sites ("all of today's check-ins"). **Access patterns, not just ownership, decide the
 URL shape.**
 
@@ -149,8 +150,9 @@ side effects.
   where consumers are strangers.
 - **vs GraphQL:** GraphQL solves real problems (per-view data shaping, N screens × M
   clients) at the cost of caching complexity, query cost control, and a heavier
-  server. SlipCheck has one first-party web client — GraphQL's benefits don't clear
-  its costs here. *Knowing why you're NOT using something is the senior answer.*
+  server. A product with one first-party web client is buying flexibility it doesn't
+  need — GraphQL's benefits don't clear its costs there. *Knowing why you're NOT
+  using something is the senior answer.*
 - **Purity vs pragmatism:** a `/dashboard` aggregate endpoint is fine *as an explicit,
   named exception* (a "view resource") — the sin isn't the aggregate, it's the whole
   API being accidental aggregates.
@@ -162,9 +164,9 @@ side effects.
 
 **Weekend project:** design-first, then implement, no framework magic.
 
-1. Write `openapi.yaml` for four SlipCheck resources (`companies`, `sites`,
-   `check-ins`, `site-photos`) — *before* any code. Every endpoint, every status code,
-   the error envelope, list/detail representations.
+1. Write `openapi.yaml` for the lab product's four core resources (the worked example
+   uses `companies`, `sites`, `check-ins`, `site-photos`) — *before* any code. Every
+   endpoint, every status code, the error envelope, list/detail representations.
 2. Implement two of them on **raw Node `http`** — no Express. Hand-roll: router,
    JSON body parsing with size limit, error envelope middleware, 405 for wrong
    methods (a detail frameworks hide).
@@ -175,23 +177,30 @@ What building on raw `http` teaches that Express hides: content-type negotiation
 your job, 405 vs 404 is a real decision, and "middleware" is just an array of
 functions you fold over a request.
 
-## SlipCheck integration
+## Lab integration
 
-Current state: SlipCheck's API routes grew feature-by-feature (Next.js route handlers,
-mixed conventions — some return `{ data }`, some return bare objects; error shapes
-vary by author-date). Exactly the naive solution above, which is normal — it's what
-shipping fast looks like.
+Two paths, depending on what the lab looks like when you get here:
 
-This module's integration is an **API audit + ADR**, not a rewrite:
+**Greenfield (the stronger version):** the contract exists before the first route does.
+Write `ADR-001: API conventions` — the error envelope, resource naming, status-code
+palette, pagination placeholder (Spine 1.5 fills it in) — and hold every route to it
+from day one. You get the Stripe property (uniformity) for free, because there's
+nothing to migrate.
+
+**Brownfield:** the audit. An API that grew feature-by-feature — mixed conventions,
+some routes returning `{ data }`, some bare objects, error shapes varying by
+author-date — is exactly the naive solution above, and it's normal: it's what shipping
+fast looks like. The integration is an **audit + ADR**, not a rewrite:
 
 1. Inventory every route handler into a table: path, method, request/response shape,
    error shape, status codes used.
-2. Write `ADR-001: API conventions` — the error envelope, resource naming, status-code
-   palette, pagination placeholder (Spine 1.5 fills it in).
+2. Write the same `ADR-001: API conventions`.
 3. Migrate the two worst offenders to the convention; leave the rest for
    opportunistic migration (expand–contract discipline arrives properly in Spine 2.5).
 
-- At **1 customer**: none of this matters. That's why it wasn't done.
+Why it matters by scale:
+
+- At **1 customer**: none of this matters. That's why brownfield APIs look the way they do.
 - At **100 customers**: the first external integration request arrives ("can we pull
   compliance events into our system?") and the contract becomes a product surface.
 - At **10,000**: you're Stripe — you publish your API guidelines because hundreds of
@@ -260,7 +269,7 @@ throughput.** Numbers before architecture.
 - [ ] Can draw the verbs × nouns grid from memory
 - [ ] Wrote the OpenAPI spec before code — [link]
 - [ ] Built two resources on raw Node `http` — [link]
-- [ ] SlipCheck: audit table + ADR-001 merged + two routes migrated — [link]
+- [ ] Lab: ADR-001 (API conventions) merged + first two resources living by it — [link]
 - [ ] Wrote the handbook chapter — [link]
 - [ ] Can answer all five interview questions cold
 

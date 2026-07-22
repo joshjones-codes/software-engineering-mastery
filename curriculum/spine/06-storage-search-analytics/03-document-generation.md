@@ -2,7 +2,7 @@
 
 > **Track:** Spine · **Stage:** Storage, Search & Analytics · **Tier:** 🟡 should · **Effort:** ~1 wknd · **Status:** ⬜ not started
 
-**Covers:** PDF reports, templating, async generation — SlipCheck compliance reports
+**Covers:** PDF reports, templating, async generation — invoices, reports, exports
 
 ---
 

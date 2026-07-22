@@ -2,7 +2,7 @@
 
 > **Track:** Frontend · **Stage:** Design Systems · **Tier:** 🟡 should · **Effort:** ~2–3 wknds · **Status:** ⬜ not started
 
-**Covers:** tokens, variants, composition & slots, accessible primitives, documentation · project: formalize SlipCheck UI
+**Covers:** tokens, variants, composition & slots, accessible primitives, documentation · project: formalize the lab app's UI into a documented system
 
 ---
 
